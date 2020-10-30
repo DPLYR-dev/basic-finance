@@ -1,18 +1,17 @@
 <center>
 
   <h1>{{title}}</h1>
-  <a href="/"> <b>Add Lead</b></a>
-  <p>View Leads</p>
+  <a href="/add"> <b>Add Record</b></a>
+  <p>View Records</p>
 
   <div>
     <table>
       <tr>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>Company</th>
-        <th>Email</th>
-        <th>LinkedIn URL</th>
-        <th>Last Contact</th>
+        <th>Description</th>
+        <th>Value</th>
+        <th>Income or Expense</th>
+        <th>Type</th>
+        <th>Date</th>
         <th>ID</th>
       </tr>
       {{#each data}}
@@ -21,16 +20,7 @@
         <td>{{value}}</td>
         {{/eachProperty}}
         <td>
-          <details>
-            <summary>Actions</summary>
-            <p>
-              <a href="/leads/{{this.id}}">View</a>
-              <br>
-              <a href="/leads/updateDate/{{this.id}}">Update Last Contact</a>
-              <br>
-              <a href="/leads/delete/{{this.id}}">Delete</a>
-            </p>
-          </details>
+              <a href="/delete/{{this.id}}">Delete</a>
         </td>
       </tr>
       {{/each}}

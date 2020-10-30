@@ -17,6 +17,10 @@ exports.index = async function (req, res) {
 //   res.render('viewLead', {lead: file[req.params.id], title: config.appName, texts: texts});
 // }
 
+exports.renderAdd = async function(req, res){
+  res.render('add', {title: config.appName})
+}
+
 exports.addRecord = async function (req, res) {
   console.log(req.body)
   var data = req.body;
@@ -35,7 +39,7 @@ exports.addRecord = async function (req, res) {
   fse.writeJSONSync(path.join(__dirname, '..', 'data.json'), file);
 
 
-  return res.render('index', { lead: data, title: config.appName});
+  return res.redirect('/')
 }
 
 exports.deleteRecord = async function (req, res) {

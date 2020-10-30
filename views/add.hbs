@@ -1,0 +1,27 @@
+<center>
+<h1>{{title}}</h1>
+<a href="/"> <b>View Records</b></a>
+<p>Add Record</p>
+
+  <form action="/addRecord" method="post">
+    <label for="desc">Description</label>
+    <input type="text" name="desc" id="desc" required>
+
+    <label for="value">Value</label>
+    <input type='number' name="value" id="value">
+
+    <label for="ioe">Income or Expense?</label>
+    <select type="text" name="ioe" id="ioe" required>
+      <option value="Income">Income</option>
+      <option value="Expense">Expense</option>
+    </select>
+
+
+    <label for="type">Type</label>
+    <select  name="type" id="type"></select>
+
+    <button type="submit" value="Add Record">Add Record</button>
+
+  </form>
+</center>
+
