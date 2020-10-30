@@ -5,8 +5,9 @@ const fse = require('fs-extra')
 const path = require('path')
 
 
+router.get('/', Ctrl.dashboard);
 /* GET home page. */
-router.get('/', Ctrl.index);
+router.get('/history', Ctrl.index);
 
 router.get('/add-income', Ctrl.renderAddIncome);
 router.get('/add-expense', Ctrl.renderAddExpense);

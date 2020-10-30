@@ -3,6 +3,10 @@ const path = require('path')
 
 var config = fse.readJSONSync(path.join(__dirname, '..', 'config.json'));
 
+exports.dashboard = async function (req, res) {
+  res.render('dashboard', {title: config.appName})
+}
+
 exports.index = async function (req, res) {
   var file = await fse.readJSONSync(path.join(__dirname, '..', 'data.json'));
   file.forEach(function (v) { delete v.createdAtUS; });
