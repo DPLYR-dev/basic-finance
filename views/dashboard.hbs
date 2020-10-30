@@ -1,21 +1,31 @@
 <center>
   <h1>{{title}}</h1>
 
+  <a href="/history"></a>
 
   <section style="max-width: 1400px;">
     <header>
       <h2>Key Numbers</h2>
     </header>
 
-    <aside>
+    {{#if isPositive}}
+      
+    <aside style="color: green;">
       <h2>{{balance}}</h2>
       <p>Balance</p>
     </aside>
-    <aside>
+    {{else}}
+    <aside style="color: red;">
+      <h2>{{balance}}</h2>
+      <p>Balance</p>
+    </aside>
+      
+    {{/if}}
+    <aside style="color: green;">
       <h2>{{income}}</h2>
       <p>Income</p>
     </aside>
-    <aside>
+    <aside style="color: red;">
       <h2> {{expense}} </h2>
       <p> Expense </p>
     </aside>

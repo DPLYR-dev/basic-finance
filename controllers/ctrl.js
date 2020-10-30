@@ -17,7 +17,11 @@ exports.dashboard = async function (req, res) {
     else
       return 0
   }).reduce((a, b) => a + b, 0)
-  res.render('dashboard', { title: config.appName, income: income, expense: expense, balance: income - expense })
+  var isPositive = true;
+  if( income - expense < 1){
+    isPositive = false;
+  }
+  res.render('dashboard', { title: config.appName, income: income, expense: expense, balance: income - expense, isPositive:  })
 }
 
 exports.index = async function (req, res) {
