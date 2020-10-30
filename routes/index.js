@@ -8,11 +8,11 @@ const path = require('path')
 /* GET home page. */
 router.get('/', Ctrl.index);
 
-router.get('/add', Ctrl.getLeads);
+router.get('/add', Ctrl.addRecord);
 
-router.post('/settings', Ctrl.addLead);
+router.post('/settings');
 
-router.get('/delete/:id', Ctrl.deleteLead);
+router.get('/delete/:id', Ctrl.deleteRecord);
 
 
 module.exports = router;
