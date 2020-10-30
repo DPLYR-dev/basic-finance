@@ -17,9 +17,26 @@ exports.index = async function (req, res) {
 //   res.render('viewLead', {lead: file[req.params.id], title: config.appName, texts: texts});
 // }
 
+exports.renderSettings = function (req, res) {
+  res.render('settings', { title: config.appName, data: config })
+}
+
+exports.settings = async function (req, res) {
+  console.log(req.body);
+  var data = req.body
+  if( typeof data.incomeCateories == 'string'){
+    data.incomeCategories = [data.incomeCategories]
+  }
+  if( typeof data.expenseCateories == "string"){
+    data.expenseCateories = [data.expenseCateories]
+  }
+  await fse.writeJSONSync(path.join(__dirname, '..', 'config.json'), data);
+  config = data;
+  res.redirect('/');
+}
 
 exports.renderAddIncome = async function(req, res){
-  res.render('add-income', {title: config.appName, cate: config.incomeCategroies})
+  res.render('add-income', {title: config.appName, cate: config.incomeCategories})
 }
 exports.renderAddExpense = async function(req, res){
   res.render('add-expense', {title: config.appName, cate: config.expenseCategories})

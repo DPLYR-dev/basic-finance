@@ -1,0 +1,79 @@
+<center>
+  <h1>{{title}}</h1>
+  <form action="changeSettings" method="post">
+    <h2>Settings</h2>
+    <label for="appName">App Name</label>
+    <input type="text" name="appName" id="appName" value="{{data.appName}}">
+    <label for="incomeCategories">Income Categories</label>
+    <div id="inform">
+
+      {{#each data.incomeCategories}}
+      <input type="text" name="incomeCategories" id="incomeCategories" value={{this}}>
+      {{/each}}
+    </div>
+    <a onclick='AddFormField("inform", "text", "incomeCategories", "", "")'>Add category</a>
+    <a onclick='RemoveFormField("inform", "text", "incomeCategories", "", "")'>Remove category</a>
+    <br>
+    <br>
+    <label for="expenseCategories">Expense Categories</label>
+    <div id="exform">
+
+      {{#each data.expenseCategories}}
+      <input type="text" name="expenseCategories" id="expenseCategories" value={{this}}>
+      {{/each}}
+    </div>
+    <a onclick='AddFormField("exform", "text", "expenseCategories", "", "")'>Add category</a>
+    <a onclick='RemoveFormField("exform", "text", "expenseCategories", "", "")'>Remove category</a>
+    <br>
+    <br>
+
+    <button type="submit"> <b>Save Settings</b> </button>
+  </form>
+</center>
+
+<script type="text/javascript">
+  var DefaultName = "";
+  var DefaultNameIncrementNumber = 0;
+
+  // No further customizations required.
+  function AddFormField(id, type, name, value, tag) {
+    if (!document.getElementById && document.createElement) { return; }
+    var inhere = document.getElementById(id);
+    var formfield = document.createElement("input");
+    if (name.length < 1) {
+      DefaultNameIncrementNumber++;
+      name = String(DefaultName);
+    }
+    formfield.name = name;
+    formfield.type = type;
+    formfield.value = value;
+    if (tag.length > 0) {
+      var thetag = document.createElement(tag);
+      thetag.appendChild(formfield);
+      inhere.appendChild(thetag);
+    }
+    else { inhere.appendChild(formfield); }
+  } // function AddFormField()
+  function RemoveFormField(id, type, name, value, tag) {
+    if (!document.getElementById && document.createElement) { return; }
+    var inhere = document.getElementById(id);
+    var formfield = document.createElement("input");
+    if (name.length < 1) {
+      DefaultNameIncrementNumber++;
+      name = String(DefaultName);
+    }
+    formfield.name = name;
+    formfield.type = type;
+    formfield.value = value;
+    if (tag.length > 0) {
+      // var thetag = document.createElement(tag);
+      //thetag.appendChild(formfield);
+      //inhere.appendChild(thetag);
+    }
+    else { 
+      // inhere.appendChild(formfield); 
+      inhere.removeChild(inhere.lastElementChild)
+      
+      }
+  } // function AddFormField()
+</script>

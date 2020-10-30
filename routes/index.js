@@ -12,7 +12,8 @@ router.get('/add-income', Ctrl.renderAddIncome);
 router.get('/add-expense', Ctrl.renderAddExpense);
 router.post('/addRecord', Ctrl.addRecord);
 
-router.get('/settings');
+router.get('/settings', Ctrl.renderSettings);
+router.post('/changeSettings', Ctrl.settings);
 
 router.get('/delete/:id', Ctrl.deleteRecord);
 
