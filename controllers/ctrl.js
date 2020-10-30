@@ -4,7 +4,20 @@ const path = require('path')
 var config = fse.readJSONSync(path.join(__dirname, '..', 'config.json'));
 
 exports.dashboard = async function (req, res) {
-  res.render('dashboard', {title: config.appName})
+  var file = await fse.readJSONSync(path.join(__dirname, '..', 'data.json'));
+  var income = file.map((el, i) => {
+    if (el.ioe == "Income")
+      return parseFloat(el.value)
+    else
+      return 0
+  }).reduce((a, b) => a + b, 0)
+  var expense = file.map((el, i) => {
+    if (el.ioe == "Expense")
+      return parseFloat(el.value)
+    else
+      return 0
+  }).reduce((a, b) => a + b, 0)
+  res.render('dashboard', { title: config.appName, income: income, expense: expense, balance: income - expense })
 }
 
 exports.index = async function (req, res) {
@@ -28,10 +41,10 @@ exports.renderSettings = function (req, res) {
 exports.settings = async function (req, res) {
   console.log(req.body);
   var data = req.body
-  if( typeof data.incomeCateories == 'string'){
+  if (typeof data.incomeCateories == 'string') {
     data.incomeCategories = [data.incomeCategories]
   }
-  if( typeof data.expenseCateories == "string"){
+  if (typeof data.expenseCateories == "string") {
     data.expenseCateories = [data.expenseCateories]
   }
   await fse.writeJSONSync(path.join(__dirname, '..', 'config.json'), data);
@@ -39,11 +52,11 @@ exports.settings = async function (req, res) {
   res.redirect('/');
 }
 
-exports.renderAddIncome = async function(req, res){
-  res.render('add-income', {title: config.appName, cate: config.incomeCategories})
+exports.renderAddIncome = async function (req, res) {
+  res.render('add-income', { title: config.appName, cate: config.incomeCategories })
 }
-exports.renderAddExpense = async function(req, res){
-  res.render('add-expense', {title: config.appName, cate: config.expenseCategories})
+exports.renderAddExpense = async function (req, res) {
+  res.render('add-expense', { title: config.appName, cate: config.expenseCategories })
 }
 
 exports.addRecord = async function (req, res) {
