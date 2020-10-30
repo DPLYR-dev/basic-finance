@@ -1,7 +1,7 @@
 <center>
 <h1>{{title}}</h1>
 <a href="/"> <b>View Records</b></a>
-<p>Add Record</p>
+<p>Add Income</p>
 
   <form action="/addRecord" method="post">
     <label for="desc">Description</label>
@@ -10,17 +10,17 @@
     <label for="value">Value</label>
     <input type='number' name="value" id="value">
 
-    <label for="ioe">Income or Expense?</label>
-    <select type="text" name="ioe" id="ioe" required>
-      <option value="Income">Income</option>
-      <option value="Expense">Expense</option>
-    </select>
 
 
     <label for="type">Type</label>
-    <select  name="type" id="type"></select>
+    <select  name="type" id="type">
 
-    <button type="submit" value="Add Record">Add Record</button>
+      {{#each cate}}
+        <option value="{{this}}">{{this}}</option>
+      {{/each}}
+    </select>
+
+    <button type="submit" value="Add Record">Add Income</button>
 
   </form>
 </center>

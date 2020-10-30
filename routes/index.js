@@ -8,7 +8,8 @@ const path = require('path')
 /* GET home page. */
 router.get('/', Ctrl.index);
 
-router.get('/add', Ctrl.renderAdd);
+router.get('/add-income', Ctrl.renderAddIncome);
+router.get('/add-expense', Ctrl.renderAddExpense);
 router.post('/addRecord', Ctrl.addRecord);
 
 router.get('/settings');

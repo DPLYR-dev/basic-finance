@@ -1,0 +1,26 @@
+<center>
+<h1>{{title}}</h1>
+<a href="/"> <b>View Records</b></a>
+<p>Add Expense</p>
+
+  <form action="/addRecord" method="post">
+    <label for="desc">Description</label>
+    <input type="text" name="desc" id="desc" required>
+
+    <label for="value">Value</label>
+    <input type='number' name="value" id="value">
+
+    <label for="type">Type</label>
+    <select  name="type" id="type">
+
+      {{#each cate}}
+        <option value="{{this}}">{{this}}</option>
+        
+      {{/each}}
+    </select>
+
+    <button type="submit" value="Add Record">Add Expense</button>
+
+  </form>
+</center>
+

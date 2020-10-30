@@ -19,6 +19,10 @@ hbs.registerHelper('eachProperty', function (context, options) {
   return ret;
 });
 
+hbs.registerHelper('ifEquals', function(arg1, arg2, options) {
+  return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');

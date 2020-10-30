@@ -17,8 +17,12 @@ exports.index = async function (req, res) {
 //   res.render('viewLead', {lead: file[req.params.id], title: config.appName, texts: texts});
 // }
 
-exports.renderAdd = async function(req, res){
-  res.render('add', {title: config.appName})
+
+exports.renderAddIncome = async function(req, res){
+  res.render('add-income', {title: config.appName, cate: config.incomeCategroies})
+}
+exports.renderAddExpense = async function(req, res){
+  res.render('add-expense', {title: config.appName, cate: config.expenseCategories})
 }
 
 exports.addRecord = async function (req, res) {
