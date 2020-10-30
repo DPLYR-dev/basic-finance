@@ -1,7 +1,11 @@
 <center>
   <h1>{{title}}</h1>
 
-  <a href="/history"></a>
+  <a href="/history"><b>Transaction History</b></a>
+  <a href="/add-income"> <b> Add Income </b></a>
+  <a href="/add-expense"><b>Add Expense</b></a>
+  <a onclick="openCurrency()"><b>Currency Exchange</b></a>
+  <a href="/settings"><b>Settings</b></a>
 
   <section style="max-width: 1400px;">
     <header>
@@ -31,3 +35,30 @@
     </aside>
   </section>
 </center>
+
+<style>
+  #currency{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0%;
+    z-index: 1000;
+    background-color: rgba(3, 3, 3, 0.411);
+  }
+</style>
+<center id="currency" style="display: none;">
+  <a onclick="closeC()">Close [X]</a>
+  <!-- Currency Converter Script - EXCHANGERATEWIDGET.COM -->
+<div style="width:198px;border:1px solid #55A516;"><div style="text-align:center;background-color:#55A516;width:100%;font-size:13px;font-weight:bold;height:18px;padding-top:2px;"><a href="https://www.exchangeratewidget.com/" style="color:#FFFFFF;text-decoration:none;" rel="nofollow">Currency Converter</a></div><script type="text/javascript" src="//www.exchangeratewidget.com/converter.php?l=en&f=USD&t=EUR&a=1&d=F0F0F0&n=FFFFFF&o=000000&v=1"></script></div>
+<!-- End of Currency Converter Script -->
+</center>
+
+<script>
+  function openCurrency(){
+    var pop = document.getElementById('currency').style.display = "block"
+  }
+  function closeC(){
+    console.log("hey")
+    document.getElementById('currency').style.display = "none"
+  }
+</script>

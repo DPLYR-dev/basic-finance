@@ -21,7 +21,7 @@ exports.dashboard = async function (req, res) {
   if( income - expense < 1){
     isPositive = false;
   }
-  res.render('dashboard', { title: config.appName, income: income, expense: expense, balance: income - expense, isPositive:  })
+  res.render('dashboard', { title: config.appName, income: income, expense: expense, balance: income - expense, isPositive: isPositive })
 }
 
 exports.index = async function (req, res) {
