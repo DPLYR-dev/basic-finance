@@ -11,7 +11,7 @@ router.get('/', Ctrl.index);
 router.get('/add', Ctrl.renderAdd);
 router.post('/addRecord', Ctrl.addRecord);
 
-router.post('/settings');
+router.get('/settings');
 
 router.get('/delete/:id', Ctrl.deleteRecord);
 
