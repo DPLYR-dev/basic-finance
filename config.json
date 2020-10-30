@@ -1,18 +1,11 @@
 {
-  "texts": [
-    {
-      "name": "Hello1",
-      "text": "Hello ${lead.name}, \n Hope you are staying safe, I was wondering what are you using in ${lead.company} as your cloud provider? \n We have helped companies just like ${lead.company} reduce costs, be more flexible and iterate fast and I think we can help you too."
-    },
-    {
-      "name": "Demo",
-      "text": "${lead.name} \n ${lead.company} \n ${lead.phone} \n ${lead.email} \n ${company.name} \n ${company.url} \n ${company.senderName} \n ${company.senderEmail} \n ${company.senderPhone} \n ${company.calendly}"
-    },
-    {
-      "name":"test","text":"Hey ${lead.name}"
-    }
+  "incomeCategroies": [
+    "Subscripton",
+    "Consultation"
   ],
-  "companyName":"DPLYR",
-  "companyURL":"https://www.dplyr.dev",
-  "appName":"DPLYR Finance"
+  "expenseCategories":[
+    "Tools",
+    "Salareies"
+  ],
+  "appName": "DPLYR Finance"
 }
